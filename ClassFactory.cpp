@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "ClassFactory.h"
 
 #include <new>

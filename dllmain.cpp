@@ -1,9 +1,11 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
-#include "pch.h"
 
 #include "Global.h"
 #include "ClassFactory.h"
 #include "Regist.h"
+#include "MyContextMenuExt.h"
+
+#pragma comment(lib, "Shlwapi")
 
 #define EXTENSION_NAME L"FileUnlocker"
 
@@ -20,7 +22,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
         g->SetDllInst(hModule);
 
         // add ClassFactory to Global instance
-        g->AddFactory(CLSID_FILE_UNLOCKER, NULL, EXTENSION_NAME, EXT_TYPE_CONTEXT_MENU);
+        g->AddFactory(CLSID_FILE_UNLOCKER, MyContextMenuExt::ComponentCreator, EXTENSION_NAME, EXT_TYPE_CONTEXT_MENU);
+
         break;
 
     case DLL_THREAD_ATTACH:

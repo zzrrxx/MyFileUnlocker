@@ -27,6 +27,7 @@ public:
   long DllRef() const;
   void IncreDllRef();
   void DecreDllRef();
+  int ShellIdList() const;
 
   void AddFactory(const CLSID id, FPCOMPCREATOR func, const wchar_t* friendlyName, int extType);
   void GetFactories(FactoryInfo** retFactories, int* count) const;
@@ -38,9 +39,10 @@ private:
   static Global* m_Instance;
 
 
-  FactoryInfo* m_FactoryData;
+  FactoryInfo  m_FactoryData[8];
   int          m_FactoryDataLen;
   HINSTANCE    m_hInst;
   long         m_DllRef;
+  int          m_ShellIdList;
 };
 

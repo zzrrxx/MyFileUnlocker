@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "Regist.h"
 
 #include <strsafe.h>

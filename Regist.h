@@ -1,4 +1,7 @@
 #pragma once
+
+#include <Windows.h>
+
 class Regist {
 public:
   static HRESULT RegisterInprocServer(PCWSTR pszModule, const CLSID& clsid, PCWSTR pszFriendlyName, PCWSTR pszThreadModel);
