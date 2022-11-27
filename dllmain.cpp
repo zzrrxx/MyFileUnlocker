@@ -87,6 +87,9 @@ STDAPI DllRegisterServer() {
             if (fact.ExtType == EXT_TYPE_CONTEXT_MENU) {
 
                 hr = Regist::RegisterShellExtContextMenuHandler(L"*", fact.CLSID, fact.FriendlyName);
+                if (SUCCEEDED(hr)) {
+                    hr = Regist::RegisterShellExtContextMenuHandler(L"Directory", fact.CLSID, fact.FriendlyName);
+                }
 
             } else if (fact.ExtType == EXT_TYPE_OVERLAY_ICON_HANDLER) {
 
