@@ -61,7 +61,6 @@ void Global::GetFactories(FactoryInfo** retFactories, int* count) const {
 void Global::Reset() {
     m_DllRef = 0;
     m_hInst = NULL;
-    if (m_FactoryData) free(m_FactoryData);
     m_FactoryDataLen = 0;
 }
 
